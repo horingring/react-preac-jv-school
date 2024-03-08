@@ -39,6 +39,7 @@ function GnbHeader() {
   const [show, setShow] = useState(true);
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
+  // computed
   const urlQuery = new URLSearchParams(useLocation().search);
 
   return (

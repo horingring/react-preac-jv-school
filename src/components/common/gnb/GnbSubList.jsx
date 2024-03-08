@@ -61,11 +61,13 @@ const Ul = styled.ul`
 `;
 
 function GnbSubList(props) {
+  // props
   const { subItems, parent } = props;
 
   // redux state
   const hoveredGnb = useSelector(({ common }) => common.hoveredGnb);
 
+  // computed
   const currentRoute = useLocation();
   const urlPath = currentRoute.pathname;
   const urlQuery = new URLSearchParams(currentRoute.search);

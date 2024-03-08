@@ -36,9 +36,11 @@ function GnbItem(props) {
   // redux state
   const hoveredGnb = useSelector(({ common }) => common.hoveredGnb);
 
-  const urlPath = useLocation().pathname;
-
+  // redux dispatch
   const dispatch = useDispatch();
+
+  // computed
+  const urlPath = useLocation().pathname;
 
   // methods
   function onMouseEnter(item) {
@@ -55,8 +57,7 @@ function GnbItem(props) {
           <Link
             to={item.to}
             className={`
-              header__gnbItemLink
-              flex-center
+              header__gnbItemLink flex-center
               ${isOnGnb(item) ? "header__gnbItemLink--on" : ""}
             `}
             onMouseEnter={() => {
@@ -75,8 +76,8 @@ function GnbItem(props) {
             href={item.to}
             target={item.target}
             className={`
-              header__gnbItemLink
-              flex-center
+              header__gnbItemLink flex-center
+              ${isOnGnb(item) ? "header__gnbItemLink--on" : ""}
             `}
             onMouseEnter={() => {
               onMouseEnter(item);

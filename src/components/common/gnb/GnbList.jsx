@@ -2,7 +2,8 @@ import { useMemo, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
 import GnbItem from "./GnbItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { SET_HOVERED_GNB } from "@/store/slices/commonSlice";
 
 // Components
 const Ul = styled.ul`
@@ -59,8 +60,11 @@ function GnbList() {
   // redux state
   const hoveredGnb = useSelector(({ common }) => common.hoveredGnb);
 
-  const urlPath = useLocation().pathname;
+  // redux dispatch
+  const dispatch = useDispatch();
 
+  // computed
+  const urlPath = useLocation().pathname;
   const onSub = useMemo(() => {
     // gnbItem이 1.선택되었거나, 2.hover 되어있어야 한다.
     // 1. gnbItem 선택 여부 확인
@@ -78,6 +82,9 @@ function GnbList() {
         header__gnbList flex-center
         ${onSub ? "header__gnbList--onSub" : ""}
       `}
+      onMouseLeave={() => {
+        dispatch(SET_HOVERED_GNB(null));
+      }}
     >
       {gnbList.map((gnb) => (
         <GnbItem item={gnb} key={gnb.id} />
