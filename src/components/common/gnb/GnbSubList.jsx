@@ -88,29 +88,31 @@ function GnbSubList(props) {
   return (
     <Ul
       className={`
-      header__gnbSubList
-      flex-center
-      ${isBlind(parent) ? "blind" : ""}
-      ${isCurriculum(parent.to) ? "curriculum" : ""}
-      ${isWorkbook(parent.to) ? "workbook" : ""}
-    `}
+        header__gnbSubList flex-center
+        ${isBlind(parent) ? "blind" : ""}
+        ${isCurriculum(parent.to) ? "curriculum" : ""}
+        ${isWorkbook(parent.to) ? "workbook" : ""}
+      `}
     >
       {subItems.map((subItem) => (
         <li
           key={subItem.id}
           className={`
-          header__gnbSubItem
-          ${urlQuery.get("t") === subItem.param ? "header__gnbSubItem--on" : ""}
-          ${urlQuery.get("t") === "level1" ? "level1" : ""}
-        `}
+            header__gnbSubItem
+            ${
+              urlQuery.get("t") === subItem.param
+                ? "header__gnbSubItem--on"
+                : ""
+            }
+            ${urlQuery.get("t") === "level1" ? "level1" : ""}
+          `}
         >
           <Link
             to={`${parent.to}?t=${subItem.param}`}
             className={`
-              header__gnbSubItemLink
-              flex-center
+              header__gnbSubItemLink flex-center
               header__gnbSubItemLink--${subItem.id}
-          `}
+            `}
           >
             {subItem.text}
           </Link>
