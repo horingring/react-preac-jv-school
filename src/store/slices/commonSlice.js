@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  test: "test1",
+  hoveredGnb: null,
 };
 
 const commonSlice = createSlice({
   name: "common",
   initialState: initialState,
   reducers: {
-    SET_TEST(state, action) {
-      state.test = action.payload;
+    SET_HOVERED_GNB(state, action) {
+      state.hoveredGnb = action.payload;
     },
   },
 });
 
-export const { SET_TEST } = commonSlice.actions;
+export const { SET_HOVERED_GNB } = commonSlice.actions;
 
 export default commonSlice.reducer;

@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
-import IntroPage from "@/pages/IntroPage";
 import styled from "styled-components";
 import { Reset } from "styled-reset";
+import GlobalStyle from "./assets/styles/GlobalStyle";
+import GnbHeader from "./components/common/gnb/GnbHeader";
 
 const Wrapper = styled.div`
   background-color: yellow;
@@ -11,9 +12,9 @@ function App() {
   return (
     <>
       <Reset />
+      <GlobalStyle />
       <Wrapper>
-        App 컴포넌트
-        <IntroPage />
+        <GnbHeader />
         <Outlet />
       </Wrapper>
     </>
