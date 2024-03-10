@@ -1,12 +1,10 @@
-// import TestComponent from "@/components/IntroPage/TestComponent";
-import TestComponent from "@components/IntroPage/TestComponent";
+import IntroSection from "@/components/IntroPage/Intro/IntroSection";
 
 function IntroPage() {
   return (
-    <>
-      <h1 style={{ backgroundColor: "red" }}>인트로 페이지 입니다</h1>
-      <TestComponent />
-    </>
+    <main id="introPage">
+      <IntroSection />
+    </main>
   );
 }
 

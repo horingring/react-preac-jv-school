@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import GnbLogo from "./GnbLogo";
 import GnbList from "./GnbList";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
+import { debounce } from "lodash";
 
 const Header = styled.header`
   &.header {
@@ -41,6 +42,31 @@ function GnbHeader() {
 
   // computed
   const urlQuery = new URLSearchParams(useLocation().search);
+
+  // methods
+  const onScroll = () => {
+    const currentScroll = window.scrollY;
+    // 스크롤 down
+    if (currentScroll > lastScrollTop) {
+      setShow(false);
+    }
+    // 스크롤 up
+    else {
+      setShow(true);
+    }
+    setLastScrollTop(currentScroll);
+  };
+
+  const debouncedOnScroll = useCallback(debounce(onScroll, 50), []);
+
+  // lifecycle
+  useEffect(() => {
+    window.addEventListener("scroll", debouncedOnScroll);
+
+    return () => {
+      window.removeEventListener("scroll", debouncedOnScroll);
+    };
+  }, []);
 
   return (
     <Header

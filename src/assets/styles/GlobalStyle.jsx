@@ -1,27 +1,31 @@
 import { createGlobalStyle } from "styled-components";
+import NanumSquareRoundL from "@/assets/fonts/NanumSquareRoundL.ttf";
+import NanumSquareRoundR from "@/assets/fonts/NanumSquareRoundR.ttf";
+import NanumSquareRoundB from "@/assets/fonts/NanumSquareRoundB.ttf";
+import NanumSquareRoundEB from "@/assets/fonts/NanumSquareRoundEB.ttf";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'NanumSquareRound';
-    src: url('@/assets/fonts/NanumSquareRoundL.ttf') format('truetype');
+    src: url(${NanumSquareRoundL}) format('truetype');
     font-weight: 300;
   }
 
   @font-face {
     font-family: 'NanumSquareRound';
-    src: url('@/assets/fonts/NanumSquareRoundR.ttf') format('truetype');
+    src: url(${NanumSquareRoundR}) format('truetype');
     font-weight: 500;
   }
 
   @font-face {
     font-family: 'NanumSquareRound';
-    src: url('@/assets/fonts/NanumSquareRoundB.ttf') format('truetype');
+    src: url(${NanumSquareRoundB}) format('truetype');
     font-weight: 700;
   }
 
   @font-face {
     font-family: 'NanumSquareRound';
-    src: url('@/assets/fonts/NanumSquareRoundEB.ttf') format('truetype');
+    src: url(${NanumSquareRoundEB}) format('truetype');
     font-weight: 900;
   }
 
