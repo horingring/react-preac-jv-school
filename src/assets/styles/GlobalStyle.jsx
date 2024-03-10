@@ -39,6 +39,11 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 500;
   }
 
+  button {
+    all: unset;
+    outline: revert;
+  }
+
   a {
     color: black;
     text-decoration: none;
