@@ -4,9 +4,7 @@ import { Reset } from "styled-reset";
 import GlobalStyle from "./assets/styles/GlobalStyle";
 import GnbHeader from "./components/common/gnb/GnbHeader";
 
-const Wrapper = styled.div`
-  background-color: yellow;
-`;
+const Wrapper = styled.div``;
 
 function App() {
   return (
