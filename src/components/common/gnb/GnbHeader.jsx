@@ -6,33 +6,32 @@ import { useLocation } from "react-router";
 import { debounce } from "lodash";
 
 const Header = styled.header`
-  &.header {
-    position: fixed;
-    z-index: 100;
-    background-color: white;
-    -webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.16);
-    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.16);
-    width: 100%;
-    -webkit-transition: transform 0.3s;
-    transition: transform 0.3s;
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+  -webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.16);
+  width: 100%;
+  -webkit-transition: transform 0.3s;
+  transition: transform 0.3s;
 
-    .header__nav {
-      width: 1062px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-  }
-  &.header--hide {
+  &.hide {
     -webkit-transform: translateY(-100%);
     transform: translateY(-100%);
   }
-  &.header--yellow {
+  &.yellow {
     background-color: #fffbee;
   }
-  &.header--skyblue {
+  &.skyblue {
     background-color: #f9fafd;
   }
+`;
+
+const Nav = styled.nav`
+  width: 1062px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 `;
 
 function GnbHeader() {
@@ -71,16 +70,16 @@ function GnbHeader() {
   return (
     <Header
       className={`
-        header flex-center
-        ${!show ? "header--hide" : ""}
-        ${urlQuery.get("t") === "level1" ? "header--yellow" : ""}
-        ${urlQuery.get("t") === "level2" ? "header--skyblue" : ""}
+        flex-center
+        ${!show ? "hide" : ""}
+        ${urlQuery.get("t") === "level1" ? "yellow" : ""}
+        ${urlQuery.get("t") === "level2" ? "skyblue" : ""}
       `}
     >
-      <nav className="header__nav">
+      <Nav>
         <GnbLogo />
         <GnbList />
-      </nav>
+      </Nav>
     </Header>
   );
 }

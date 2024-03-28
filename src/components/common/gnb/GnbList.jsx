@@ -6,11 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { SET_HOVERED_GNB } from "@/store/slices/commonSlice";
 
 // Components
-const Ul = styled.ul`
-  &.header__gnbList {
-    gap: 18px;
-  }
-  &.header__gnbList--onSub {
+const StyledUl = styled.ul`
+  gap: 18px;
+
+  &.onSub {
     padding-bottom: 109px;
   }
 `;
@@ -77,10 +76,10 @@ function GnbList() {
   }, [gnbList, urlPath, hoveredGnb]);
 
   return (
-    <Ul
+    <StyledUl
       className={`
-        header__gnbList flex-center
-        ${onSub ? "header__gnbList--onSub" : ""}
+        flex-center
+        ${onSub ? "onSub" : ""}
       `}
       onMouseLeave={() => {
         dispatch(SET_HOVERED_GNB(null));
@@ -89,7 +88,7 @@ function GnbList() {
       {gnbList.map((gnb) => (
         <GnbItem item={gnb} key={gnb.id} />
       ))}
-    </Ul>
+    </StyledUl>
   );
 }
 

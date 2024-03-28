@@ -4,21 +4,21 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import GnbSubList from "./GnbSubList";
 
-const Li = styled.li`
-  &.header__gnbItem {
-    position: relative;
-  }
-  .header__gnbItemLink {
-    position: relative;
-    width: 162px;
-    height: 88px;
-    font-size: 20px;
-    font-weight: 900;
-  }
-  .header__gnbItemLink--on {
+const StyledLi = styled.li`
+  position: relative;
+`;
+
+const StyledLink = styled(Link)`
+  position: relative;
+  width: 162px;
+  height: 88px;
+  font-size: 20px;
+  font-weight: 900;
+
+  &.on {
     color: #ffcd03;
   }
-  .header__gnbItemLink--on::after {
+  &.on::after {
     content: "";
     position: absolute;
     display: block;
@@ -29,10 +29,19 @@ const Li = styled.li`
   }
 `;
 
-function GnbItem(props) {
-  // props
-  const { item } = props;
+const StyledAnchor = styled.a`
+  position: relative;
+  width: 162px;
+  height: 88px;
+  font-size: 20px;
+  font-weight: 900;
 
+  &.on {
+    color: #ffcd03;
+  }
+`;
+
+function GnbItem({ item }) {
   // redux state
   const hoveredGnb = useSelector(({ common }) => common.hoveredGnb);
 
@@ -51,43 +60,43 @@ function GnbItem(props) {
   }
 
   return (
-    <Li className="header__gnbItem">
+    <StyledLi>
       {!item.target ? (
         <>
-          <Link
+          <StyledLink
             to={item.to}
             className={`
-              header__gnbItemLink flex-center
-              ${isOnGnb(item) ? "header__gnbItemLink--on" : ""}
+              flex-center
+              ${isOnGnb(item) ? "on" : ""}
             `}
             onMouseEnter={() => {
               onMouseEnter(item);
             }}
           >
             {item.text}
-          </Link>
+          </StyledLink>
           {item.subItems?.length > 0 && (
             <GnbSubList subItems={item.subItems} parent={item} />
           )}
         </>
       ) : (
         <>
-          <a
+          <StyledAnchor
             href={item.to}
             target={item.target}
             className={`
-              header__gnbItemLink flex-center
-              ${isOnGnb(item) ? "header__gnbItemLink--on" : ""}
+              flex-center
+              ${isOnGnb(item) ? "on" : ""}
             `}
             onMouseEnter={() => {
               onMouseEnter(item);
             }}
           >
             {item.text}
-          </a>
+          </StyledAnchor>
         </>
       )}
-    </Li>
+    </StyledLi>
   );
 }
 

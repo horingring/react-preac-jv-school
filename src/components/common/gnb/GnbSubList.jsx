@@ -8,55 +8,57 @@ import subIconLogic from "@/assets/img/common/gnb/nav_link_sub_03.png";
 import subIconLab from "@/assets/img/common/gnb/nav_link_sub_04.png";
 import subIconSocial from "@/assets/img/common/gnb/nav_link_sub_05.png";
 
-const Ul = styled.ul`
-  &.header__gnbSubList {
-    position: absolute;
-    top: 88px;
-    height: 109px;
+const StyledUl = styled.ul`
+  position: absolute;
+  top: 88px;
+  height: 109px;
+
+  &.curriculum {
+    transform: translate(calc(-405px + 81px), 0);
   }
-  .header__gnbSubItem {
-    color: #555;
-    .header__gnbSubItemLink {
-      color: inherit;
-      box-sizing: border-box;
-      width: 162px;
-      height: 54px;
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: -0.6px;
-    }
-  }
-  .header__gnbSubItem--on {
+`;
+
+const StyledLi = styled.li`
+  color: #555;
+
+  &.on {
     color: black;
     background-color: #f2f6fc;
     border-radius: 100px;
   }
-  &.header__gnbSubList.curriculum {
-    transform: translate(calc(-405px + 81px), 0);
-    .header__gnbSubItemLink--1 {
-      background: url(${subIconMath}) no-repeat 34px 50%/35px 28px;
-    }
-    .header__gnbSubItemLink--2 {
-      background: url(${subIconCoding}) no-repeat 34px 50%/35px 28px;
-    }
-    .header__gnbSubItemLink--3 {
-      background: url(${subIconLogic}) no-repeat 34px 50%/35px 28px;
-    }
-    .header__gnbSubItemLink--4 {
-      background: url(${subIconLab}) no-repeat 34px 50%/35px 28px;
-    }
-    .header__gnbSubItemLink--5 {
-      background: url(${subIconSocial}) no-repeat 34px 50%/35px 28px;
-    }
-    .header__gnbSubItemLink {
-      padding-left: 73px;
-      padding-right: 32px;
-    }
+
+  .workbook &.on.level1 {
+    background-color: #ffe990;
   }
-  &.header__gnbSubList.workbook {
-    .header__gnbSubItem--on.level1 {
-      background-color: #ffe990;
-    }
+`;
+
+const StyledLink = styled(Link)`
+  color: inherit;
+  box-sizing: border-box;
+  width: 162px;
+  height: 54px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.6px;
+
+  .curriculum & {
+    padding-left: 73px;
+    padding-right: 32px;
+  }
+  .curriculum &.link--1 {
+    background: url(${subIconMath}) no-repeat 34px 50%/35px 28px;
+  }
+  .curriculum &.link--2 {
+    background: url(${subIconCoding}) no-repeat 34px 50%/35px 28px;
+  }
+  .curriculum &.link--3 {
+    background: url(${subIconLogic}) no-repeat 34px 50%/35px 28px;
+  }
+  .curriculum &.link--4 {
+    background: url(${subIconLab}) no-repeat 34px 50%/35px 28px;
+  }
+  .curriculum &.link--5 {
+    background: url(${subIconSocial}) no-repeat 34px 50%/35px 28px;
   }
 `;
 
@@ -86,39 +88,34 @@ function GnbSubList(props) {
   }
 
   return (
-    <Ul
+    <StyledUl
       className={`
-        header__gnbSubList flex-center
+        flex-center
         ${isBlind(parent) ? "blind" : ""}
         ${isCurriculum(parent.to) ? "curriculum" : ""}
         ${isWorkbook(parent.to) ? "workbook" : ""}
       `}
     >
       {subItems.map((subItem) => (
-        <li
+        <StyledLi
           key={subItem.id}
           className={`
-            header__gnbSubItem
-            ${
-              urlQuery.get("t") === subItem.param
-                ? "header__gnbSubItem--on"
-                : ""
-            }
+            ${urlQuery.get("t") === subItem.param ? "on" : ""}
             ${urlQuery.get("t") === "level1" ? "level1" : ""}
           `}
         >
-          <Link
+          <StyledLink
             to={`${parent.to}?t=${subItem.param}`}
             className={`
-              header__gnbSubItemLink flex-center
-              header__gnbSubItemLink--${subItem.id}
+              flex-center
+              link--${subItem.id}
             `}
           >
             {subItem.text}
-          </Link>
-        </li>
+          </StyledLink>
+        </StyledLi>
       ))}
-    </Ul>
+    </StyledUl>
   );
 }
 
