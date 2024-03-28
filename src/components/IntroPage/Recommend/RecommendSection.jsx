@@ -4,43 +4,39 @@ import awardsImg from "@/assets/img/IntroPage/recommend/jr-pc-section-1-img-v3.p
 import StrongSpan from "@/components/common/ui/StrongSpan";
 
 const Section = styled.section`
-  &.rcmdSec {
-    background: url(${rcmdSecBgImg}) #fff no-repeat 50% 180px/1548px 327px;
-  }
+  background: url(${rcmdSecBgImg}) #fff no-repeat 50% 180px/1548px 327px;
 `;
 
 const Intro = styled.div`
-  &.rcmdSec__intro {
-    padding-top: 200px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
+  padding-top: 200px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 `;
 
 const Title = styled.h3`
-  &.rcmdSec__title {
-    font-size: 48px;
-    font-weight: 900;
-    text-align: center;
-    padding-top: 40px;
-    line-height: 60px;
-    letter-spacing: -2.5px;
-  }
+  font-size: 48px;
+  font-weight: 900;
+  text-align: center;
+  padding-top: 40px;
+  line-height: 60px;
+  letter-spacing: -2.5px;
 `;
 
 const AwardsImg = styled.div`
-  .rcmdSec__awardsImg {
-    width: 860px;
-    height: auto;
+  & {
+    .rcmdSec__awardsImg {
+      width: 860px;
+      height: auto;
+    }
   }
 `;
 
 function RecommendSection() {
   return (
-    <Section className="rcmdSec">
-      <Intro className="rcmdSec__intro">
-        <Title className="rcmdSec__title">
+    <Section>
+      <Intro>
+        <Title>
           먼저 써본
           <br />
           부모님이
