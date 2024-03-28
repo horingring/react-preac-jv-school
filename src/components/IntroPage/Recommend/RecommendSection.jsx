@@ -34,7 +34,7 @@ const AwardsImg = styled.div`
 
 function RecommendSection() {
   return (
-    <Section>
+    <Section className="rcmdSec">
       <Intro>
         <Title>
           먼저 써본

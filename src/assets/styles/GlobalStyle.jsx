@@ -29,6 +29,10 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 900;
   }
 
+  * {
+  scroll-behavior: smooth;
+  }
+
   html,
   body,
   #app {
