@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import StrongSpan from "@/components/common/ui/StrongSpan";
 import effectFigImg from "@/assets/img/IntroPage/effect/jr-pc-section-study-img.png";
-import AccordionComponent from "@/components/common/ui/AccordionComponent";
+import EffectSecAccordion from "./EffectSecAccordion";
 
 const Section = styled.section`
   &.effectSec {
@@ -63,20 +63,7 @@ function EffectSection() {
         />
       </Inner>
 
-      <AccordionComponent show headerAsBtn btnTextOn="닫기" btnTextOff="열기">
-        {{
-          header: (
-            <>
-              <h3>헤더입니다.</h3>
-            </>
-          ),
-          body: (
-            <>
-              <h3>바디입니다.</h3>
-            </>
-          ),
-        }}
-      </AccordionComponent>
+      <EffectSecAccordion />
     </Section>
   );
 }

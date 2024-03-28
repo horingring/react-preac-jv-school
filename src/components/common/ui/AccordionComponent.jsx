@@ -5,28 +5,27 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const Header = styled.section`
+export const Header = styled.section`
   display: flex;
   align-items: center;
   height: 80px;
   justify-content: space-between;
   background-color: #c2cadb;
   border-radius: 20px;
-  ${(props) =>
-    props.$on &&
-    `
+
+  .on & {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-  `}
+  }
   ${(props) =>
     props.$headerAsBtn &&
     `cursor: pointer;
   `}
 `;
 
-const HeaderText = styled.div``;
+export const HeaderText = styled.div``;
 
-const Button = styled.button`
+export const Button = styled.button`
   width: 50px;
   height: 50px;
   background-color: white;
@@ -34,9 +33,9 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const ButtonText = styled.span``;
+export const ButtonText = styled.span``;
 
-const Body = styled.section`
+export const Body = styled.section`
   height: 300px;
   background-color: #a0a8ba;
   border-bottom-left-radius: 20px;
@@ -70,12 +69,13 @@ function AccordionComponent(props) {
   // LifeCycle - E
 
   return (
-    <Wrapper>
-      <Header
-        $on={isShow}
-        $headerAsBtn={props.headerAsBtn}
-        onClick={onClickHeader}
-      >
+    <Wrapper
+      className={`
+      ${isShow ? `on` : ``}
+      ${props.className}
+    `}
+    >
+      <Header $headerAsBtn={props.headerAsBtn} onClick={onClickHeader}>
         <HeaderText>{props.children?.header}</HeaderText>
         <Button className="flex-center" onClick={onClickBtn}>
           <ButtonText
@@ -89,6 +89,7 @@ function AccordionComponent(props) {
       </Header>
       <Body
         className={`
+        accordion__body
         ${!isShow && "blind"}
       `}
       >
