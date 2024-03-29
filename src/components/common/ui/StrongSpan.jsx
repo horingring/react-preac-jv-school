@@ -24,9 +24,9 @@ const Underline = styled.span`
   border-radius: 4px;
 `;
 
-function StrongSpan({ text, color, underline, underlineColor }) {
+function StrongSpan({ text, color, underline, underlineColor, className }) {
   return (
-    <StrongBox>
+    <StrongBox className={className}>
       <TextWrap color={color}>{text}</TextWrap>
       {underline && <Underline underlineColor={underlineColor} />}
     </StrongBox>
