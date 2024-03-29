@@ -24,10 +24,10 @@ const Underline = styled.span`
   border-radius: 4px;
 `;
 
-function StrongSpan({ text, color, underline, underlineColor, className }) {
+function StrongSpan({ children, color, underline, underlineColor, className }) {
   return (
     <StrongBox className={className}>
-      <TextWrap $color={color}>{text}</TextWrap>
+      <TextWrap $color={color}>{children}</TextWrap>
       {underline && <Underline $underlineColor={underlineColor} />}
     </StrongBox>
   );

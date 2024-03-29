@@ -41,7 +41,7 @@ function RecommendSection() {
           <br />
           부모님이
           <br />
-          <StrongSpan text="추천하는 앱" underline />
+          <StrongSpan underline>추천하는 앱</StrongSpan>
         </Title>
         <AwardsImg>
           <img

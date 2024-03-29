@@ -40,7 +40,7 @@ function EffectSection() {
         <TitleBox>
           <Title>
             하루 15분, 우리 아이가&nbsp;
-            <StrongSpan text="똑똑해집니다" underline />
+            <StrongSpan underline>똑똑해집니다</StrongSpan>
           </Title>
           <TitleSub>유아 수학・인지 능력의 향상을 확인하였습니다.</TitleSub>
         </TitleBox>

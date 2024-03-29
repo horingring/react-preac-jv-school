@@ -29,11 +29,9 @@ function CompositionSection() {
       <Inner>
         <Title>
           쥬니버스쿨은&nbsp;
-          <StrongSpan
-            text="이렇게 구성되어 있습니다"
-            underline
-            underlineColor="#dbe4f2"
-          />
+          <StrongSpan underline underlineColor="#dbe4f2">
+            이렇게 구성되어 있습니다
+          </StrongSpan>
         </Title>
         <CompositionBody />
       </Inner>
