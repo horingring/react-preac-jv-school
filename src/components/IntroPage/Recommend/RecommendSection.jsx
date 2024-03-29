@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import StrongSpan from "@/components/common/ui/StrongSpan";
+import RcmdSwiper from "./RcmdSwiper";
+
 import rcmdSecBgImg from "@/assets/img/IntroPage/recommend/jr-pc-section-1.png";
 import awardsImg from "@/assets/img/IntroPage/recommend/jr-pc-section-1-img-v3.png";
-import StrongSpan from "@/components/common/ui/StrongSpan";
 
 const Section = styled.section`
   background: url(${rcmdSecBgImg}) #fff no-repeat 50% 180px/1548px 327px;
@@ -56,6 +58,7 @@ function RecommendSection() {
           </ul>
         </AwardsImg>
       </Intro>
+      <RcmdSwiper />
     </Section>
   );
 }
