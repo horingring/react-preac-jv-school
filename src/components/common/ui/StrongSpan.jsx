@@ -7,7 +7,7 @@ const StrongBox = styled.span`
 const TextWrap = styled.strong`
   position: relative;
   z-index: 10;
-  color: ${({ color }) => (color ? color : "inherit")};
+  color: ${({ $color }) => ($color ? $color : "inherit")};
 `;
 
 const Underline = styled.span`
@@ -19,16 +19,16 @@ const Underline = styled.span`
   display: block;
   width: 100%;
   height: 20px;
-  background-color: ${({ underlineColor }) =>
-    underlineColor ? underlineColor : "#ffcd03"};
+  background-color: ${({ $underlineColor }) =>
+    $underlineColor ? $underlineColor : "#ffcd03"};
   border-radius: 4px;
 `;
 
 function StrongSpan({ text, color, underline, underlineColor, className }) {
   return (
     <StrongBox className={className}>
-      <TextWrap color={color}>{text}</TextWrap>
-      {underline && <Underline underlineColor={underlineColor} />}
+      <TextWrap $color={color}>{text}</TextWrap>
+      {underline && <Underline $underlineColor={underlineColor} />}
     </StrongBox>
   );
 }

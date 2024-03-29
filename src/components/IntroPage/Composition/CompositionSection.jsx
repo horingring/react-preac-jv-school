@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import StrongSpan from "@/components/common/ui/StrongSpan";
+import CompositionBody from "./CompositionBody";
 import bgImg from "@/assets/img/IntroPage/composition/jr-pc-consist-bg_v2.png";
 
 const StyledSection = styled.section`
@@ -34,6 +35,7 @@ function CompositionSection() {
             underlineColor="#dbe4f2"
           />
         </Title>
+        <CompositionBody />
       </Inner>
     </StyledSection>
   );
