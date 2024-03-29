@@ -1,6 +1,7 @@
-import EffectSection from "@/components/IntroPage/Effect/EffectSection";
 import IntroSection from "@/components/IntroPage/Intro/IntroSection";
 import RecommendSection from "@/components/IntroPage/Recommend/RecommendSection";
+import EffectSection from "@/components/IntroPage/Effect/EffectSection";
+import CompositionSection from "@/components/IntroPage/Composition/CompositionSection";
 
 function IntroPage() {
   return (
@@ -8,6 +9,7 @@ function IntroPage() {
       <IntroSection />
       <RecommendSection />
       <EffectSection />
+      <CompositionSection />
     </main>
   );
 }
